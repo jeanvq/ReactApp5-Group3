@@ -79,4 +79,4 @@ src/
 
 ## Screenshots
 
-(add screenshots here after app is complete)
+(screenshots will be here after app is complete)
