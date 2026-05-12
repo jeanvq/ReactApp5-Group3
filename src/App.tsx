@@ -1,9 +1,19 @@
 // src/App.tsx
-// main app - Gurinder (setup)
-// will hold task state and pass props to child components
-// teammates build their components, we wire them together here
+import { useState } from "react";
+import type { Filters } from "./models/types.ts";
+import FilterBar from "./components/FilterBar.tsx";
+import useLocalStorage from "./hooks/useLocalStorage.ts";
+
+const defaultFilters: Filters = {
+    status: "all",
+    priority: "all",
+    search: "",
+};
 
 export default function App() {
+    const [tasks, setTasks] = useLocalStorage("tasks", []);
+    const [filters, setFilters] = useState<Filters>(defaultFilters);
+
     return (
         <div className="container py-4" style={{ maxWidth: 900 }}>
             <div className="text-center mb-4">
@@ -16,10 +26,8 @@ export default function App() {
                 <div className="card-body text-muted">TaskForm placeholder - Ahmad</div>
             </div>
 
-            {/* TODO-JEAN: FilterBar component goes here */}
-            <div className="card shadow-sm mb-4">
-                <div className="card-body text-muted">FilterBar placeholder - Jean</div>
-            </div>
+            {/* TODO-JEAN: FilterBar */}
+            <FilterBar filters={filters} onFilterChange={setFilters} />
 
             {/* TODO-KEN: TaskList + TaskItem components go here */}
             <div className="card shadow-sm">
