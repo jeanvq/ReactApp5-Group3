@@ -47,62 +47,73 @@ function TaskForm({ onAddTask }: TaskFormProps) {
   }
 
   return (
-    <div className="task-form-container">
-      <h2>Add New Task</h2>
+    <div className="card shadow-sm mb-4">
+      <div className="card-header bg-primary text-white">
+        <h5 className="mb-0">Add New Task</h5>
+      </div>
+      <div className="card-body">
+        <form onSubmit={handleSubmit}>
+          <div className="row g-3">
+            {/* task title input */}
+            <div className="col-md-6">
+              <label className="form-label">Task Title</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Enter task title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </div>
 
-      <form onSubmit={handleSubmit}>
-        {/* task title input */}
-        <div>
-          <label>Task Title</label>
-          <input
-            type="text"
-            placeholder="Enter task title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </div>
+            {/* due date input */}
+            <div className="col-md-6">
+              <label className="form-label">Due Date</label>
+              <input
+                type="date"
+                className="form-control"
+                value={dueDate}
+                onChange={(e) => setDueDate(e.target.value)}
+              />
+            </div>
 
-        {/* due date input */}
-        <div>
-          <label>Due Date</label>
-          <input
-            type="date"
-            value={dueDate}
-            onChange={(e) => setDueDate(e.target.value)}
-          />
-        </div>
+            {/* priority dropdown */}
+            <div className="col-md-4">
+              <label className="form-label">Priority</label>
+              <select
+                className="form-select"
+                value={priority}
+                onChange={(e) =>
+                  setPriority(e.target.value as "low" | "medium" | "high")
+                }
+              >
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
 
-        {/* priority dropdown */}
-        <div>
-          <label>Priority</label>
+            {/* category input */}
+            <div className="col-md-4">
+              <label className="form-label">Category</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Homework, Exam, Study..."
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+              />
+            </div>
 
-          <select
-            value={priority}
-            onChange={(e) =>
-              setPriority(e.target.value as "low" | "medium" | "high")
-            }
-          >
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-          </select>
-        </div>
-
-        {/* category input */}
-        <div>
-          <label>Category</label>
-
-          <input
-            type="text"
-            placeholder="Homework, Exam, Study..."
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          />
-        </div>
-
-        {/* submit button */}
-        <button type="submit">Add Task</button>
-      </form>
+            {/* submit button */}
+            <div className="col-md-4 d-flex align-items-end">
+              <button type="submit" className="btn btn-success w-100">
+                + Add Task
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
