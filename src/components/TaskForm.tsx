@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Task } from "../models/types";
+import type { Task } from "../models/types.ts";
 
 // props received from App component
 type TaskFormProps = {
