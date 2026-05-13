@@ -79,4 +79,4 @@ src/
 
 ## Screenshots
 
-(screenshots will be here after app is complete)
+![Task & Study Planner screenshot](images/Screen.png)
