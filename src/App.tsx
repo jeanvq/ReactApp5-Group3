@@ -1,5 +1,5 @@
 // src/App.tsx 
-// Gurinder - main app, wires all components together
+// Gurinder - main app, wires all components together 
 // holds task state and filter state
 // passes handlers down to TaskForm, FilterBar, TaskList
 
